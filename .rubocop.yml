@@ -8,3 +8,12 @@ Style/Documentation:
 Style/FrozenStringLiteralComment:
   Exclude:
     - db/migrate/**/*
+Layout/LineLength:
+  Exclude:
+    - config/initializers/devise.rb
+Metrics/MethodLength:
+  Exclude:
+    - db/migrate/*
+Metrics/AbcSize:
+  Exclude:
+    - db/migrate/*
