@@ -1,0 +1,39 @@
+<%= form_with(model: employee, local: true) do |form| %>
+    <% if employee.errors.any? %>
+        <div id="error_explanation">
+        <h2><%= pluralize(employee.errors.count, "error") %> prohibited this employee from being saved:</h2>
+
+        <ul>
+            <% employee.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+            <% end %>
+        </ul>
+        </div>
+    <% end %>
+
+    <%# generate field using floating labels %>
+
+    <div class="form-floating mb-3">
+        <%= form.text_field :name, class: 'form-control', id: 'floatingInput', placeholder: 'Nome' %>
+        <%= form.label :name, 'Nome' %>
+    </div>
+
+    <div class="form-floating mb-3">
+        <%= form.email_field :email, class: 'form-control', id: 'floatingInput', placeholder: 'E-mail' %>
+        <%= form.label :email, 'E-mail' %>
+    </div>
+
+    <div class="form-floating mb-3">
+        <%= form.text_field :register_number, class: 'form-control', id: 'floatingInput', placeholder: 'RG' %>
+        <%= form.label :register_number, 'RG' %>
+    </div>
+
+    <div class="form-floating mb-3">
+        <%= form.text_field :cpf, class: 'form-control', id: 'floatingInput', placeholder: 'CPF' %>
+        <%= form.label :cpf, 'CPF' %>
+    </div>
+
+    <div class="actions">
+        <%= form.submit class: 'btn btn-primary' %>
+    </div>
+<% end %>
