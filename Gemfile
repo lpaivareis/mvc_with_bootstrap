@@ -70,6 +70,9 @@ group :development, :test do
 
   # Use awesome_print for pretty print debugging
   gem 'awesome_print', '~> 1.9', '>= 1.9.2'
+
+  # Use Faker for fake data generation
+  gem 'faker', '~> 3.2'
 end
 
 group :development do

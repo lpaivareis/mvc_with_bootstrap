@@ -17,3 +17,5 @@ Metrics/MethodLength:
 Metrics/AbcSize:
   Exclude:
     - db/migrate/*
+Rails/I18nLocaleTexts:
+  Enabled: false
