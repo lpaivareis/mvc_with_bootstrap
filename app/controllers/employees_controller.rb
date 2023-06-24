@@ -37,6 +37,21 @@ class EmployeesController < ApplicationController
     redirect_to employees_path, notice: 'Funcionário excluído com sucesso!'
   end
 
+  def export_file
+    file = ExportFileService.call(Employee.includes(:role).all)
+
+    if file.present?
+      send_file(
+        file,
+        filename: 'employees.xlsx',
+        type: 'application/xlsx',
+        disposition: 'attachment'
+      )
+    else
+      redirect_to employees_path, notice: 'Não foi possível gerar o arquivo'
+    end
+  end
+
   private
 
   def employee_params

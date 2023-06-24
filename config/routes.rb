@@ -5,5 +5,9 @@ Rails.application.routes.draw do
 
   root to: 'employees#index'
 
-  resources :employees
+  resources :employees do
+    collection do
+      get :export_file
+    end
+  end
 end
