@@ -2,4 +2,6 @@
 
 class Employee < ApplicationRecord
   validates :name, :email, :register_number, :cpf, presence: true
+
+  belongs_to :role
 end
