@@ -1,4 +1,4 @@
-<div class='container'>
+<div class='container p-5 list mt-5 mb-5'>
     <div class='row'>
         <div class='col-md-6 mt-5'>
             <h1>Funcionários</h1>
@@ -11,7 +11,7 @@
 
     <div class='row mt-3 mb-3'>
         <div class='col-md-12'>
-            <h4>Pesquisar</h4>
+            <h4 class="color">Pesquisar</h4>
             <%= form_for @q, url: employees_path, method: :get, html: { class: '' } do |f| %>
                 <div class='row form-floating m-1 mb-3'>
                     <%= f.text_field :name_or_email_or_role_name_or_register_number_cont, class: 'form-control', placeholder: 'Nome', id: 'floatingInput' %>
@@ -63,7 +63,7 @@
         </div>
     </div>
 
-    <div class='row mt-5 mb-5'>
+    <div class='row mt-5'>
         <div class='col-md-12 d-flex justify-content-center'>
             <%= paginate @employees %>
         </div>

@@ -11,6 +11,13 @@
   </head>
 
   <body>
-    <%= yield %>
+    <%# container centralizado horizontalmente e verticalmente %>
+    <div class="container d-flex justify-content-center align-items-center" style="min-height: 100vh;">
+      <div class="row">
+        <div class="col-md-12">
+          <%= yield %>
+        </div>
+      </div>
+    </div>
   </body>
 </html>
