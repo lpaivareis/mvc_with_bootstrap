@@ -2,9 +2,9 @@
 
 class EmployeesController < ApplicationController
   def index
-    @q = Employee.includes(:role).ransack(params[:q])
+    @q = Employee.ransack(params[:q])
 
-    @employees = @q.result(distinct: true)
+    @employees = @q.result(distinct: true).includes(:role).page params[:page]
   end
 
   def new

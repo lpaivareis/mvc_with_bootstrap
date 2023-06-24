@@ -5,8 +5,11 @@ class Employee < ApplicationRecord
 
   belongs_to :role
 
-  # ransack attributes
   def self.ransackable_attributes(_auth_object = nil)
-    %w[name email register_number cpf role_name]
+    %w[name email register_number cpf] + _ransackers.keys
+  end
+
+  def self.ransackable_associations(_auth_object = nil)
+    super + %w[role]
   end
 end
