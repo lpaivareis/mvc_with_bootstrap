@@ -50,9 +50,14 @@ gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', require: false
 
-# Use WriteXLSX to generate Excel files
-gem 'write_xlsx', '~> 1.11'
+# Use rubyXL to generate Excel files
 gem 'rubyXL', '~> 3.4', '>= 3.4.25'
+
+# Use Ransack for advanced search
+gem 'ransack', '~> 4.0'
+
+# Use Kaminari for pagination
+gem 'kaminari', '~> 1.2', '>= 1.2.2'
 
 # Use Sass to process CSS
 # gem "sassc-rails"
