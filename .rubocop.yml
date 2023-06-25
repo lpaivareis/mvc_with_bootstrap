@@ -19,3 +19,8 @@ Metrics/AbcSize:
     - db/migrate/*
 Rails/I18nLocaleTexts:
   Enabled: false
+Lint/MissingSuper:
+  Enabled: false
+Metrics/AbcSize:
+  Exclude:
+    - app/services/export_file_service.rb

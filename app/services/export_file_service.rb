@@ -10,25 +10,22 @@ class ExportFileService < ApplicationService
   end
 
   def call
-    export_file_xlsx
+    create_file
 
     filename
   end
 
   private
 
-  def export_file_xlsx
+  def create_file
     workbook = RubyXL::Workbook.new
-    worksheet = workbook[0]
+    worksheet = create_columns(workbook)
+    create_rows(worksheet)
 
-    worksheet.add_cell(0, 0, 'Nome')
-    worksheet.add_cell(0, 1, 'E-mail')
-    worksheet.add_cell(0, 2, 'RG')
-    worksheet.add_cell(0, 3, 'CPF')
-    worksheet.add_cell(0, 4, 'Cargo')
-    worksheet.add_cell(0, 5, 'Data de criação')
-    worksheet.add_cell(0, 6, 'Data de atualização')
+    workbook.write(filename)
+  end
 
+  def create_rows(worksheet)
     employees.each_with_index do |employee, index|
       worksheet.add_cell(index + 1, 0, employee.name)
       worksheet.add_cell(index + 1, 1, employee.email)
@@ -38,8 +35,20 @@ class ExportFileService < ApplicationService
       worksheet.add_cell(index + 1, 5, employee.created_at.strftime('%d/%m/%Y'))
       worksheet.add_cell(index + 1, 6, employee.updated_at.strftime('%d/%m/%Y'))
     end
+  end
 
-    workbook.write(filename)
+  def create_columns(workbook)
+    worksheet = workbook[0]
+
+    columns_name.each_with_index do |column, index|
+      worksheet.add_cell(0, index, column)
+    end
+
+    worksheet
+  end
+
+  def columns_name
+    %w[Nome E-mail RG CPF Cargo Criação Atualização]
   end
 
   def filename

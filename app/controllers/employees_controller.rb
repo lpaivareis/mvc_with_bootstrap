@@ -45,12 +45,7 @@ class EmployeesController < ApplicationController
     file = ExportFileService.call(Employee.includes(:role).all)
 
     if file.present?
-      send_file(
-        file,
-        filename: 'employees.xlsx',
-        type: 'application/xlsx',
-        disposition: 'attachment'
-      )
+      download_file(file)
     else
       redirect_to employees_path, notice: 'Não foi possível gerar o arquivo'
     end
@@ -59,6 +54,15 @@ class EmployeesController < ApplicationController
   private
 
   def employee_params
-    params.require(:employee).permit(:name, :email, :register_number, :cpf)
+    params.require(:employee).permit(:name, :email, :register_number, :cpf, :role_id)
+  end
+
+  def download_file(file)
+    send_file(
+      file,
+      filename: 'employees.xlsx',
+      type: 'application/xlsx',
+      disposition: 'attachment'
+    )
   end
 end

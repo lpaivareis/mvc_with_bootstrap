@@ -31,6 +31,11 @@
         <%= form.label :cpf, 'CPF' %>
     </div>
 
+    <div class="form-floating mb-3">
+        <%= form.collection_select :role_id, Role.all, :id, :name, { prompt: 'Selecione um cargo' }, class: 'form-control', id: 'floatingInput' %>
+        <%= form.label :role_id, 'Cargo' %>
+    </div>
+
     <div class="actions">
         <%= form.submit class: 'btn btn-primary' %>
     </div>
