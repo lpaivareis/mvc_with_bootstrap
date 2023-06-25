@@ -1,24 +1,60 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Este é um pequeno projeto para um software MVC escrito em Ruby on Rails versão 7.0, que utiliza Ruby 3.2, banco de dados PostgreSQL e algumas gems, como RubyXL, Ransack, Kaminari e Bootstrap para layout.
 
-Things you may want to cover:
+## Requisitos
+Certifique-se de ter as seguintes dependências instaladas antes de prosseguir:
 
-* Ruby version
+* Ruby 3.2
+* Ruby on Rails 7.0
+* PostgreSQL
+* Yarn ou NPM
 
-* System dependencies
+## Instalação
+Clone o repositório e instale as dependências:
 
-* Configuration
+```bash
+bundle install
+```
 
-* Database creation
+Crie o banco de dados e execute as migrações:
 
-* Database initialization
+```bash
+rails db:create
+rails db:migrate
+```
 
-* How to run the test suite
+Execute o arquivo `db/seeds.rb` para popular o banco de dados com dados de teste:
 
-* Services (job queues, cache servers, search engines, etc.)
+```bash
+rails db:seed
+```
 
-* Deployment instructions
+Inicie o servidor:
 
-* ...
+```bash
+rails server
+```
+
+compile os assets:
+
+```bash
+yarn
+```
+
+```bash
+yarn watch:css
+```
+
+## Utilização
+
+Acesse o sistema em `http://localhost:3000/`
+
+## Gems utilizadas
+
+Este software faz uso das seguintes gems para fornecer funcionalidades adicionais:
+
+* RubyXL: Uma biblioteca para manipulação de arquivos Excel em Ruby. Permite importar e exportar dados para planilhas Excel.
+* Ransack: Uma biblioteca para construção de consultas avançadas em Ruby on Rails. Facilita a criação de pesquisas complexas em modelos.
+* Kaminari: Uma gem de paginação para Ruby on Rails. Facilita a criação de páginas com suporte a navegação paginada.
+* Bootstrap: Um framework front-end popular para criação de layouts responsivos. Facilita o desenvolvimento de interfaces atraentes e amigáveis.
