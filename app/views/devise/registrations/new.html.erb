@@ -1,5 +1,8 @@
 <div class="card">
-  <div class="card-body">
+  <div class="card-header p-3">
+    <h5 class="card-title text-center">Registre-se</h5>
+  </div>
+  <div class="card-body p-5">
       <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
           <%= render "devise/shared/error_messages", resource: resource %>
 
@@ -9,9 +12,6 @@
           </div>
 
           <div class="form-floating mb-3">
-            <% if @minimum_password_length %>
-              <em>(<%= @minimum_password_length %> characters minimum)</em>
-            <% end %>
             <%= f.password_field :password, autocomplete: "new-password", class: 'form-control', id: 'floatingInput', placeholder: 'Senha' %>
             <%= f.label :password, 'Senha' %>
           </div>
@@ -22,11 +22,9 @@
           </div>
 
           <div class="actions">
-            <div class='col-md-6'>
-              <%= f.submit "Sign up", class: 'btn btn-primary' %>
-            </div>
-            <div class='col-md-6 text-end'>
-              <%= render "devise/shared/links" %>
+            <div class='col-md-12 text-end'>
+              <%= link_to "Voltar", root_path, class: 'btn btn-secondary' %>
+              <%= f.submit "Registrar", class: 'btn btn-primary ms-1' %>
             </div>
           </div>
       <% end %>
