@@ -36,7 +36,7 @@ Inicie o servidor:
 rails server
 ```
 
-compile os assets:
+Compile os assets:
 
 ```bash
 yarn
