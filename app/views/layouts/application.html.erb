@@ -11,7 +11,18 @@
   </head>
 
   <body>
-    <%# container centralizado horizontalmente e verticalmente %>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <div class="container-fluid">
+        <%= link_to 'MvcWithBootstrap', root_path, class: 'navbar-brand' %>
+
+        <div class="navbar-nav">
+          <% if user_signed_in? %>
+            <%= link_to 'Sair', destroy_user_session_path, method: :delete, class: 'nav-link' %>
+          <% end %>
+        </div>
+      </div>
+    </nav>
+
     <div class="container d-flex justify-content-center align-items-center" style="min-height: 100vh;">
       <div class="row">
         <div class="col-md-12">
